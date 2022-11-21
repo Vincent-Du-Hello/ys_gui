@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "ys_gui",
+  "version": "${version}",
+  "name": "ys_gui",
+  "description": "方神——GUI部分",
+  "authors": [
+    "yuyanMC"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/ys_gui/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+    ],
+    "main": [
+      "top.yuyanmc.ys_gui.Ys_gui"
+    ]
+  },
+  "mixins": [
+    "ys_gui.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "minecraft": "1.19.2"
+  }
+}
