@@ -14,6 +14,9 @@
   "entrypoints": {
     "client": [
     ],
+    "server": [
+      "top.yuyanmc.ys_gui.Ys_gui_server"
+    ],
     "main": [
       "top.yuyanmc.ys_gui.Ys_gui"
     ]

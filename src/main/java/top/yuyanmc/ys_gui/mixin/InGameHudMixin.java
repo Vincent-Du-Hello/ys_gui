@@ -34,8 +34,8 @@ public abstract class InGameHudMixin extends DrawableHelper {
 
     @Shadow public abstract TextRenderer getTextRenderer();
 
-    @Inject(method = "renderStatusBars", at = @At("INVOKE"), cancellable = true)
-    public void renderStatusBar(MatrixStack matrices, CallbackInfo ci){
+    @Inject(method = "renderHotbar", at = @At("INVOKE"), cancellable = true)
+    public void renderHotbar(float tickDelta, MatrixStack matrices, CallbackInfo ci){
         PlayerEntity playerEntity = this.getCameraPlayer();
         float health = playerEntity.getHealth();
         float maxHealth = playerEntity.getMaxHealth();
@@ -59,7 +59,15 @@ public abstract class InGameHudMixin extends DrawableHelper {
         this.getTextRenderer().draw(matrices, s, (float)k, (float)l-1, 0);
         this.getTextRenderer().draw(matrices, s, (float)k, (float)l+1, 0);
         this.getTextRenderer().draw(matrices, s, (float)k, (float)l, 0xffffff);
+        s = "Lv." + playerEntity.experienceLevel;
+        k -= 35 + this.getTextRenderer().getWidth(s);
+        this.getTextRenderer().draw(matrices, s, (float)k-1, (float)l, 0);
+        this.getTextRenderer().draw(matrices, s, (float)k+1, (float)l, 0);
+        this.getTextRenderer().draw(matrices, s, (float)k, (float)l-1, 0);
+        this.getTextRenderer().draw(matrices, s, (float)k, (float)l+1, 0);
+        this.getTextRenderer().draw(matrices, s, (float)k, (float)l, 0xffffff);
         this.setZOffset(j);
+        RenderSystem.disableBlend();
         ci.cancel();
     }
 }
