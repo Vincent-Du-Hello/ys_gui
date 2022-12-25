@@ -42,8 +42,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.run_number }}
-        release_name: Release ${{ github.run_number }}
+        tag_name: tag_${{ github.sha }}
+        release_name: Release ${{ github.sha }}
         body: TODO New Release.
         draft: false
         prerelease: false
