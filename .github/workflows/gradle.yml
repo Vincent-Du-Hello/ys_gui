@@ -50,9 +50,9 @@ jobs:
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build/lib/${{ secrets.ReleaseJarName }}.jar
-        asset_name: ${{ secrets.ReleaseJarName }}.jar
+        asset_path: ./build/lib/ys_gui-1.0-SNAPSHOT.jar
+        asset_name: ys_gui-1.0-SNAPSHOT.jar
         asset_content_type: application/jar
